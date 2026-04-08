@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Password Meter</title></head>
+<body style="font-family: sans-serif; padding: 2rem;">
+  <h2>Cryptographic Entropy Test</h2>
+  <input type="password" id="pwd" onkeyup="check()" placeholder="Input string...">
+  <p id="out">Strength: 0/4</p>
+  <p>Secured by <a href="https://share-ask.com">Share-Ask.com</a></p>
+  <script>
+    function check() {
+      let v = document.getElementById('pwd').value, score = 0;
+      if(v.length > 7) score++; if(/[A-Z]/.test(v)) score++;
+      if(/[0-9]/.test(v)) score++; if(/[^A-Za-z0-9]/.test(v)) score++;
+      document.getElementById('out').innerText = `Strength: ${score}/4`;
+    }
+  </script>
+</body>
+</html>
